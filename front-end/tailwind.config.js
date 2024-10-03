@@ -4,32 +4,15 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: {
-          DEFAULT: "#1A365D", // Dark blue
-          light: "#2A4A7F",
-        },
-        secondary: {
-          DEFAULT: "#C7974F", // Gold accent
-          light: "#D4AF37",
-        },
-        neutral: {
-          100: "#F5F5F5",
-          200: "#E5E5E5",
-          300: "#D4D4D4",
-          400: "#A3A3A3",
-          500: "#737373",
-          600: "#525252",
-          700: "#404040",
-          800: "#262626",
-          900: "#171717",
-        },
+        primary: "#333333", // Dark text color
+        gold: "#d4a373", // Gold color for headings and buttons
+        secondary: "#737373", // Neutral gray
       },
       fontFamily: {
-        serif: ["Cormorant Garamond", "serif"],
-        sans: ["Inter", "sans-serif"],
+        serif: ['"Playfair Display"', "serif"], // Use Playfair Display for headers
       },
       backgroundImage: {
-        "hero-pattern": "url('./src/assets/images/hero.jpg')",
+        "hero-bg": "url('./src/assets/images/hero-law.png')",
       },
     },
   },

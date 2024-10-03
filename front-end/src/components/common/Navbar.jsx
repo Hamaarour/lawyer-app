@@ -1,33 +1,71 @@
-import { useState } from "react";
-import { useLanguage, languages } from "../../context/LanguageContext";
-import { ChevronDown } from "lucide-react";
+import { useState, useEffect } from "react";
+import { ChevronDown, Globe, Menu, X } from "lucide-react";
 
 const Navbar = () => {
-  const { currentLanguage, setCurrentLanguage } = useLanguage();
-  const [isLangMenuOpen, setIsLangMenuOpen] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  const navItems = [
-    { label: "Home", href: "#" },
-    { label: "About", href: "#" },
-    { label: "Cases", href: "#" },
-    { label: "Services", href: "#" },
+  const languages = [
+    { label: "English", code: "en" },
+    { label: "Français", code: "fr" },
+    { label: "العربية", code: "ar" },
   ];
 
+  const navItems = [
+    { label: "Our firm", href: "#" },
+    { label: "Our lawyers", href: "#" },
+    { label: "Services", href: "#" },
+    { label: "Blog", href: "#" },
+    { label: "Contact", href: "#", className: "text-gold" },
+  ];
+
+  const [selectedLanguage, setSelectedLanguage] = useState(languages[0]);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isMobileMenuOpen]);
+
+  const handleLanguageSelect = (language) => {
+    setSelectedLanguage(language);
+    setIsLanguageDropdownOpen(false);
+  };
+
   return (
-    <nav className="absolute top-0 left-0 right-0 z-50">
-      <div className="container mx-auto px-4 py-6 flex justify-between items-center">
-        <div className="flex items-center">
-          <span className="text-white font-serif text-2xl">Lawfor</span>
-        </div>
+    <nav
+      className={`fixed w-full z-50 transition-all duration-300 ${
+        isScrolled ? "bg-black/80 backdrop-blur-md" : "bg-black/30"
+      }`}
+    >
+      <div className="container mx-auto px-4 py-5 flex justify-between items-center">
+        {/* Logo */}
+        <a href="#" className="flex items-center z-50">
+          <span className="text-gold font-serif text-2xl">Fletcher Law</span>
+        </a>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex items-center space-x-8">
+        <div className="hidden lg:flex items-center space-x-8">
           {navItems.map((item, index) => (
             <a
               key={index}
               href={item.href}
-              className="text-white hover:text-secondary"
+              className={`text-gray-200 hover:text-gold transition-colors duration-300 ${
+                item.className || ""
+              }`}
             >
               {item.label}
             </a>
@@ -36,109 +74,122 @@ const Navbar = () => {
           {/* Language Selector */}
           <div className="relative">
             <button
-              onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
-              className="flex items-center text-white hover:text-secondary"
+              onClick={() => setIsLanguageDropdownOpen(!isLanguageDropdownOpen)}
+              className="flex items-center space-x-1 text-gray-200 hover:text-gold transition-colors duration-300"
+              aria-expanded={isLanguageDropdownOpen}
+              aria-haspopup="true"
             >
-              {languages[currentLanguage].nativeName}
-              <ChevronDown className="ml-1 w-4 h-4" />
+              <Globe className="w-5 h-5" />
+              <span className="text-sm font-medium">
+                {selectedLanguage.label}
+              </span>
+              <ChevronDown
+                className={`w-4 h-4 transition-transform duration-300 ${
+                  isLanguageDropdownOpen ? "rotate-180" : ""
+                }`}
+              />
             </button>
 
-            {isLangMenuOpen && (
-              <div className="absolute right-0 mt-2 py-2 w-48 bg-white rounded-md shadow-xl z-20">
-                {Object.entries(languages).map(([code, lang]) => (
+            {/* Dropdown */}
+            {isLanguageDropdownOpen && (
+              <div className="absolute right-0 mt-2 w-40 bg-black/90 backdrop-blur-md border border-white/10 rounded-md shadow-lg overflow-hidden">
+                {languages.map((language) => (
                   <button
-                    key={code}
-                    onClick={() => {
-                      setCurrentLanguage(code);
-                      setIsLangMenuOpen(false);
-                    }}
-                    className={`block px-4 py-2 text-sm capitalize w-full text-left hover:bg-neutral-100
-                      ${
-                        currentLanguage === code
-                          ? "text-secondary"
-                          : "text-neutral-700"
-                      }`}
+                    key={language.code}
+                    className={`w-full px-4 py-2 text-left text-sm ${
+                      selectedLanguage.code === language.code
+                        ? "bg-gold/10 text-gold"
+                        : "text-gray-200 hover:bg-white/5"
+                    } transition-colors duration-300`}
+                    onClick={() => handleLanguageSelect(language)}
                   >
-                    {lang.nativeName}
+                    {language.label}
                   </button>
                 ))}
               </div>
             )}
           </div>
-
-          <button className="bg-secondary text-white px-6 py-2 rounded hover:bg-secondary-light transition duration-300">
-            Contact Us
-          </button>
         </div>
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-white"
+          className="lg:hidden z-50 text-gray-200 hover:text-gold transition-colors duration-300"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-expanded={isMobileMenuOpen}
+          aria-label="Toggle menu"
         >
-          <svg
-            className="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d={
-                isMobileMenuOpen
-                  ? "M6 18L18 6M6 6l12 12"
-                  : "M4 6h16M4 12h16m-7 6h7"
-              }
-            />
-          </svg>
+          {isMobileMenuOpen ? (
+            <X className="w-6 h-6" />
+          ) : (
+            <Menu className="w-6 h-6" />
+          )}
         </button>
       </div>
 
       {/* Mobile Menu */}
-      {isMobileMenuOpen && (
-        <div className="md:hidden fixed inset-0 bg-primary text-white w-screen h-screen z-40 flex flex-col justify-center items-center">
-          {/* Close Button */}
-          <button
-            className="absolute top-5 right-5 text-white text-2xl"
-            onClick={() => setIsMobileMenuOpen(false)}
-          >
-            ✕
-          </button>
-
+      <div
+        className={`lg:hidden fixed inset-0 bg-black/95 backdrop-blur-md transition-opacity duration-300 ${
+          isMobileMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+        }`}
+      >
+        <div
+          className={`flex flex-col justify-center items-center h-full transition-all duration-300 ${
+            isMobileMenuOpen
+              ? "opacity-100 translate-y-0"
+              : "opacity-0 translate-y-4"
+          }`}
+        >
           {navItems.map((item, index) => (
             <a
               key={index}
               href={item.href}
-              className="block py-4 text-2xl text-white hover:text-secondary"
+              className={`block py-3 text-xl text-gray-200 hover:text-gold transition-colors duration-300 ${
+                item.className || ""
+              }`}
+              onClick={() => setIsMobileMenuOpen(false)}
             >
               {item.label}
             </a>
           ))}
 
           {/* Mobile Language Selector */}
-          <div className="py-4 border-t border-neutral-700 mt-6">
-            <p className="text-neutral-400 text-lg mb-4">Select Language</p>
-            {Object.entries(languages).map(([code, lang]) => (
-              <button
-                key={code}
-                onClick={() => setCurrentLanguage(code)}
-                className={`block py-2 text-lg w-full text-left
-                    ${
-                      currentLanguage === code ? "text-secondary" : "text-white"
-                    }`}
-              >
-                {lang.nativeName}
-              </button>
-            ))}
-          </div>
+          <div className="relative mt-6">
+            <button
+              onClick={() => setIsLanguageDropdownOpen(!isLanguageDropdownOpen)}
+              className="flex items-center space-x-2 text-gray-200 hover:text-gold transition-colors duration-300"
+            >
+              <Globe className="w-5 h-5" />
+              <span className="text-lg">{selectedLanguage.label}</span>
+              <ChevronDown
+                className={`w-4 h-4 transition-transform duration-300 ${
+                  isLanguageDropdownOpen ? "rotate-180" : ""
+                }`}
+              />
+            </button>
 
-          <button className="mt-6 w-full bg-secondary text-white px-8 py-3 rounded hover:bg-secondary-light transition duration-300">
-            Contact Us
-          </button>
+            {isLanguageDropdownOpen && (
+              <div className="absolute left-1/2 transform -translate-x-1/2 mt-2 w-48 bg-black/90 backdrop-blur-md border border-white/10 rounded-md shadow-lg overflow-hidden">
+                {languages.map((language) => (
+                  <button
+                    key={language.code}
+                    className={`w-full px-4 py-2 text-center ${
+                      selectedLanguage.code === language.code
+                        ? "bg-gold/10 text-gold"
+                        : "text-gray-200 hover:bg-white/5"
+                    } transition-colors duration-300`}
+                    onClick={() => {
+                      handleLanguageSelect(language);
+                      setIsMobileMenuOpen(false);
+                    }}
+                  >
+                    {language.label}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
         </div>
-      )}
+      </div>
     </nav>
   );
 };

@@ -27,7 +27,7 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section className="py-20 bg-neutral-100">
+    <section className="py-20 bg-neutral-100" id="services">
       <div className="container mx-auto px-4">
         <h2 className="font-serif text-4xl mb-12 text-center">
           We Expertise Find A Solutions

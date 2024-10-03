@@ -11,7 +11,7 @@ const Navbar = () => {
   const navItems = [
     { label: "Our firm", href: "#" },
     { label: "Our lawyers", href: "#" },
-    { label: "Services", href: "#" },
+    { label: "Services", href: "#services" },
     { label: "Blog", href: "#" },
     { label: "Contact", href: "#", className: "text-gold" },
   ];

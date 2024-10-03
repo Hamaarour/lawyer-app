@@ -52,10 +52,11 @@ const Navbar = () => {
       }`}
     >
       <div className="container mx-auto px-4 py-5 flex justify-between items-center">
-        {/* Logo */}
-        <a href="#" className="flex items-center z-50">
-          <span className="text-gold font-serif text-2xl">Fletcher Law</span>
-        </a>
+        <img
+          src="../../../src/assets/images/logo.png"
+          className="w-32"
+          alt="Law Firm Logo"
+        />
 
         {/* Desktop Menu */}
         <div className="hidden lg:flex items-center space-x-8">

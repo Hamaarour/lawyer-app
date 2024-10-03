@@ -1,11 +1,11 @@
-export default function Consultation() {
+const Consultation = () => {
   return (
     <section className="py-20 bg-primary text-white">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <img
-              src="/api/placeholder/500/300"
+              src="../../../src/assets/images/lawyer.jpg"
               alt="Legal consultation"
               className="rounded-lg"
             />
@@ -21,11 +21,11 @@ export default function Consultation() {
             </p>
             <div className="grid grid-cols-3 gap-4">
               <div className="text-center">
-                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-secondary flex items-center justify-center">
+                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gold flex items-center justify-center">
                   <svg
                     className="w-8 h-8"
                     fill="none"
-                    stroke="currentColor"
+                    stroke="#000"
                     viewBox="0 0 24 24"
                   >
                     <path
@@ -39,11 +39,11 @@ export default function Consultation() {
                 <p>Schedule Meeting</p>
               </div>
               <div className="text-center">
-                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-secondary flex items-center justify-center">
+                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gold flex items-center justify-center">
                   <svg
                     className="w-8 h-8"
                     fill="none"
-                    stroke="currentColor"
+                    stroke="#000"
                     viewBox="0 0 24 24"
                   >
                     <path
@@ -57,11 +57,11 @@ export default function Consultation() {
                 <p>Discuss Case</p>
               </div>
               <div className="text-center">
-                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-secondary flex items-center justify-center">
+                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gold flex items-center justify-center">
                   <svg
                     className="w-8 h-8"
                     fill="none"
-                    stroke="currentColor"
+                    stroke="#000"
                     viewBox="0 0 24 24"
                   >
                     <path
@@ -80,4 +80,6 @@ export default function Consultation() {
       </div>
     </section>
   );
-}
+};
+
+export default Consultation;

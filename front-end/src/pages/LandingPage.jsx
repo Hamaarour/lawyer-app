@@ -4,6 +4,7 @@ import ServicesSection from "../components/landing/ServicesSection";
 import ExpertAnswers from "../components/landing/ExpertAnswers";
 import Consultation from "../components/landing/Consultation";
 import Footer from "../components/common/Footer";
+import ContactSection from "../components/landing/ContactSection";
 
 const LandingPage = () => {
   return (
@@ -13,6 +14,7 @@ const LandingPage = () => {
       <ServicesSection />
       <ExpertAnswers />
       <Consultation />
+      <ContactSection />
       <Footer />
     </div>
   );

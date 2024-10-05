@@ -4,15 +4,24 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#333333", // Dark text color
-        gold: "#d4a373", // Gold color for headings and buttons
-        secondary: "#737373", // Neutral gray
+        primary: "#333333",
+        gold: "#d4a373",
+        secondary: "#737373",
+        cream: "#f3f2ed",
+        lightGray: "#ececec",
       },
       fontFamily: {
-        serif: ['"Playfair Display"', "serif"], // Use Playfair Display for headers
+        serif: ['"Playfair Display"', "serif"], 
+        sans: ['"Roboto"', "sans-serif"], 
       },
       backgroundImage: {
-        "hero-bg": "url('./src/assets/images/hero-law.png')",
+        "hero-bg": "url('./src/assets/images/hero-law.png')", 
+      },
+      boxShadow: {
+        custom: "0px 4px 8px rgba(0, 0, 0, 0.1)", 
+      },
+      spacing: {
+        "section-padding": "5rem",
       },
     },
   },

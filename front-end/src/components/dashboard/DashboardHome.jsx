@@ -1,13 +1,7 @@
+import React from "react";
+
 const DashboardHome = () => {
-  return (
-    <div>
-      <h1 className="text-4xl font-bold">Dashboard Home</h1>
-      <p>
-        Welcome to your dashboard. Manage your appointments, cases, and profile
-        here.
-      </p>
-    </div>
-  );
+  return <div>DashboardHome</div>;
 };
 
 export default DashboardHome;

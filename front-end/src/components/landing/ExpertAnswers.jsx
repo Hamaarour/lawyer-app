@@ -3,57 +3,12 @@ import { SERVICES } from "../../data/index.js";
 
 const LegalServices = () => {
   const [activeIndex, setActiveIndex] = useState(null);
-
-  const services = [
-    {
-      title: "REPRESENTATION OF INTERESTS IN COURT",
-      description:
-        "We assist clients in establishing and registering companies, drafting articles of association, negotiating and drafting cooperation agreements, and handling various corporate matters.",
-
-      number: "01",
-    },
-    {
-      title: "CORPORATE LAW",
-      description:
-        "We assist clients in establishing and registering companies, drafting articles of association, negotiating and drafting cooperation agreements, and handling various corporate matters.",
-      number: "02",
-    },
-    {
-      title: "REAL ESTATE AND LAND LAW",
-      description:
-        "We assist clients in establishing and registering companies, drafting articles of association, negotiating and drafting cooperation agreements, and handling various corporate matters.",
-
-      number: "03",
-    },
-    {
-      title: "LABOR LAW",
-      description:
-        "We assist clients in establishing and registering companies, drafting articles of association, negotiating and drafting cooperation agreements, and handling various corporate matters.",
-
-      number: "04",
-    },
-    {
-      title: "FAMILY LAW",
-      description:
-        "We assist clients in establishing and registering companies, drafting articles of association, negotiating and drafting cooperation agreements, and handling various corporate matters.",
-
-      number: "05",
-    },
-    {
-      title: "TAX LAW",
-      description:
-        "We assist clients in establishing and registering companies, drafting articles of association, negotiating and drafting cooperation agreements, and handling various corporate matters.",
-
-      number: "06",
-    },
-  ];
-
   const toggleService = (index) => {
     setActiveIndex(activeIndex === index ? null : index);
   };
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-cream">
       <div className="container mx-auto px-4">
         <h2 className="font-serif text-4xl mb-12">
           A WIDE RANGE OF LEGAL SERVICES TO SOLVE ANY LEGAL ISSUES

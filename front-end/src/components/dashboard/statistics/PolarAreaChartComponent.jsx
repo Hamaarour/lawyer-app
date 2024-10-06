@@ -1,30 +1,37 @@
-import React from "react";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
+// Sample data representing different law practice areas
 export const data = {
-  labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+  labels: [
+    "Family Law",
+    "Criminal Law",
+    "Corporate Law",
+    "Intellectual Property",
+    "Personal Injury",
+    "Real Estate Law",
+  ],
   datasets: [
     {
-      label: "# of Votes",
-      data: [12, 19, 3, 5, 2, 3],
+      label: "Number of Cases",
+      data: [15, 10, 25, 5, 20, 8], // Example data for each field
       backgroundColor: [
-        "rgba(255, 99, 132, 0.2)",
-        "rgba(54, 162, 235, 0.2)",
-        "rgba(255, 206, 86, 0.2)",
-        "rgba(75, 192, 192, 0.2)",
-        "rgba(153, 102, 255, 0.2)",
-        "rgba(255, 159, 64, 0.2)",
+        "#004B87", // Navy Blue - Family Law
+        "#007BFF", // Bright Blue - Criminal Law
+        "#6C757D", // Gray - Corporate Law
+        "#28A745", // Green - Intellectual Property
+        "#DC3545", // Red - Personal Injury
+        "#FFC107", // Yellow - Real Estate Law
       ],
       borderColor: [
-        "rgba(255, 99, 132, 1)",
-        "rgba(54, 162, 235, 1)",
-        "rgba(255, 206, 86, 1)",
-        "rgba(75, 192, 192, 1)",
-        "rgba(153, 102, 255, 1)",
-        "rgba(255, 159, 64, 1)",
+        "#004B87", // Navy Blue - Family Law
+        "#007BFF", // Bright Blue - Criminal Law
+        "#6C757D", // Gray - Corporate Law
+        "#28A745", // Green - Intellectual Property
+        "#DC3545", // Red - Personal Injury
+        "#FFC107", // Yellow - Real Estate Law
       ],
       borderWidth: 1,
     },

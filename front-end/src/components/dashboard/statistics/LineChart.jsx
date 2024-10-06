@@ -9,7 +9,7 @@ import {
   Legend,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
-import { faker } from "@faker-js/faker";
+// Removed faker import, using static data instead
 
 ChartJS.register(
   CategoryScale,
@@ -31,7 +31,7 @@ export const options = {
   plugins: {
     title: {
       display: true,
-      text: "Chart.js Line Chart - Multi Axis",
+      text: "Monthly Legal Cases",
     },
   },
   scales: {
@@ -39,36 +39,47 @@ export const options = {
       type: "linear",
       display: true,
       position: "left",
-    },
-    y1: {
-      type: "linear",
-      display: true,
-      position: "right",
-      grid: {
-        drawOnChartArea: false,
+      title: {
+        display: true,
+        text: "Number of Cases", // Y-axis title
       },
     },
   },
 };
 
-const labels = ["January", "February", "March", "April", "May", "June", "July"];
+// Updated labels to represent each month
+const labels = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
 
+// Sample data representing cases per month for different practice areas
 export const data = {
   labels,
   datasets: [
     {
-      label: "Dataset 1",
-      data: labels.map(() => faker.number.int({ min: -1000, max: 1000 })),
-      borderColor: "rgb(255, 99, 132)",
-      backgroundColor: "rgba(255, 99, 132, 0.5)",
+      label: "Family Law Cases",
+      data: [15, 20, 25, 10, 30, 40, 35, 50, 20, 30, 25, 40], // Example data
+      borderColor: "#004B87", // Navy Blue
+      backgroundColor: "rgba(0, 75, 135, 0.5)", // Light Navy Blue
       yAxisID: "y",
     },
     {
-      label: "Dataset 2",
-      data: labels.map(() => faker.number.int({ min: -1000, max: 1000 })),
-      borderColor: "rgb(53, 162, 235)",
-      backgroundColor: "rgba(53, 162, 235, 0.5)",
-      yAxisID: "y1",
+      label: "Criminal Law Cases",
+      data: [5, 10, 15, 20, 25, 30, 35, 15, 20, 30, 25, 35], // Example data
+      borderColor: "#007BFF", // Bright Blue
+      backgroundColor: "rgba(0, 123, 255, 0.5)", // Light Bright Blue
+      yAxisID: "y",
     },
   ],
 };

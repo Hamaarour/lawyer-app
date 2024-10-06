@@ -28,10 +28,7 @@ const AdminDashboard = () => {
         <DashboardHeader />
         <main className="flex-1 overflow-auto bg-gray-50">
           <Routes>
-            <Route
-              path="/dashboard"
-              element={<Navigate to="/dashboard/home" />}
-            />
+            <Route path="/" element={<Navigate to="/dashboard/home" />} />
             <Route path="/home" element={<DashboardHome />} />
             <Route path="/tasks" element={<Tasks />} />
             <Route path="/calendar" element={<Calendar />} />

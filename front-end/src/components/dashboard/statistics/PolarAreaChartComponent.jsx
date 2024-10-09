@@ -3,7 +3,6 @@ import { Doughnut } from "react-chartjs-2";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-// Sample data representing different law practice areas
 export const data = {
   labels: [
     "Family Law",
@@ -16,22 +15,22 @@ export const data = {
   datasets: [
     {
       label: "Number of Cases",
-      data: [15, 10, 25, 5, 20, 8], // Example data for each field
+      data: [15, 10, 25, 5, 20, 8],
       backgroundColor: [
-        "#004B87", // Navy Blue - Family Law
-        "#007BFF", // Bright Blue - Criminal Law
-        "#6C757D", // Gray - Corporate Law
-        "#28A745", // Green - Intellectual Property
-        "#DC3545", // Red - Personal Injury
-        "#FFC107", // Yellow - Real Estate Law
+        "#004B87",
+        "#007BFF",
+        "#6C757D",
+        "#28A745",
+        "#DC3545",
+        "#FFC107",
       ],
       borderColor: [
-        "#004B87", // Navy Blue - Family Law
-        "#007BFF", // Bright Blue - Criminal Law
-        "#6C757D", // Gray - Corporate Law
-        "#28A745", // Green - Intellectual Property
-        "#DC3545", // Red - Personal Injury
-        "#FFC107", // Yellow - Real Estate Law
+        "#004B87",
+        "#007BFF",
+        "#6C757D",
+        "#28A745",
+        "#DC3545",
+        "#FFC107",
       ],
       borderWidth: 1,
     },

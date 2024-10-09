@@ -14,7 +14,6 @@ const LawyerCharts = () => {
             </h2>
             <button
               onClick={() => {
-                // Example functionality for MoreHorizontal in chart
                 alert("Chart options coming soon!");
               }}
             >
@@ -30,7 +29,6 @@ const LawyerCharts = () => {
             <h2 className="text-lg font-semibold">Cases by Stages</h2>
             <button
               onClick={() => {
-                // Example functionality for MoreHorizontal in chart
                 alert("Chart options coming soon!");
               }}
             >
@@ -50,7 +48,6 @@ const LawyerCharts = () => {
             <span className="text-sm text-gray-500">Year to date</span>
             <button
               onClick={() => {
-                // Example functionality for MoreHorizontal in chart
                 alert("Chart options coming soon!");
               }}
             >

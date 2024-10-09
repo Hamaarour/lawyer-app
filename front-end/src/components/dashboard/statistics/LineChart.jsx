@@ -63,22 +63,21 @@ const labels = [
   "December",
 ];
 
-// Sample data representing cases per month for different practice areas
 export const data = {
   labels,
   datasets: [
     {
       label: "Family Law Cases",
-      data: [15, 20, 25, 10, 30, 40, 35, 50, 20, 30, 25, 40], // Example data
-      borderColor: "#004B87", // Navy Blue
-      backgroundColor: "rgba(0, 75, 135, 0.5)", // Light Navy Blue
+      data: [15, 20, 25, 10, 30, 40, 35, 50, 20, 30, 25, 40],
+      borderColor: "#004B87",
+      backgroundColor: "rgba(0, 75, 135, 0.5)",
       yAxisID: "y",
     },
     {
       label: "Criminal Law Cases",
-      data: [5, 10, 15, 20, 25, 30, 35, 15, 20, 30, 25, 35], // Example data
-      borderColor: "#007BFF", // Bright Blue
-      backgroundColor: "rgba(0, 123, 255, 0.5)", // Light Bright Blue
+      data: [5, 10, 15, 20, 25, 30, 35, 15, 20, 30, 25, 35],
+      borderColor: "#007BFF",
+      backgroundColor: "rgba(0, 123, 255, 0.5)",
       yAxisID: "y",
     },
   ],

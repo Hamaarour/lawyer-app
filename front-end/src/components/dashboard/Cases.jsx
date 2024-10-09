@@ -13,6 +13,8 @@ import {
   Trash2,
   Search,
   ChevronUp,
+  ShieldCheck,
+  Newspaper,
 } from "lucide-react";
 // Sample data structure matching your case class
 const initialCases = [
@@ -610,7 +612,6 @@ const Cases = () => {
   };
 
   const handleEditCase = (caseToEdit) => {
-    // This is a simple inline edit. You might want to replace this with a modal form for more complex edits.
     const newTitle = prompt("Enter new title:", caseToEdit.Title);
     if (newTitle) {
       const updatedCase = {
@@ -623,10 +624,9 @@ const Cases = () => {
       );
     }
   };
-  // Update metrics based on filteredCases
   const metrics = [
     {
-      icon: <Square className="h-5 w-5" />,
+      icon: <ShieldCheck className="h-5 w-5" />,
       title: "Active Cases",
       value: filteredCases.filter((c) => c.status === "Active").length,
       color: "bg-blue-100 text-blue-600",
@@ -653,7 +653,7 @@ const Cases = () => {
       color: "bg-orange-100 text-orange-600",
     },
     {
-      icon: <FileCheck className="h-5 w-5" />,
+      icon: <Newspaper className="h-5 w-5" />,
       title: "Cases Updated (Last 30 days)",
       value: filteredCases.filter(
         (c) =>
@@ -678,7 +678,6 @@ const Cases = () => {
           </button>
           <button
             onClick={() => {
-              // Example functionality for MoreHorizontal in header
               alert("More options coming soon!");
             }}
             className="p-2"
@@ -781,7 +780,6 @@ const Cases = () => {
           <h2 className="text-lg font-semibold">Cases List</h2>
           <button
             onClick={() => {
-              // Example functionality for MoreHorizontal in cases list
               alert("More options coming soon!");
             }}
             className="p-2"

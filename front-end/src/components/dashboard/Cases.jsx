@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import {
   MoreHorizontal,
-  Square,
   Clock,
   FileText,
   FileCheck,
@@ -11,7 +10,6 @@ import {
   ChevronDown,
   Edit,
   Trash2,
-  Search,
   ChevronUp,
   ShieldCheck,
   Newspaper,
@@ -493,7 +491,6 @@ const AddCaseForm = ({ isOpen, onClose, onAddCase }) => {
     </div>
   );
 };
-
 const Cases = () => {
   const [cases, setCases] = useState(initialCases);
   const [isFormOpen, setIsFormOpen] = useState(false);
@@ -512,16 +509,55 @@ const Cases = () => {
     }
   };
 
-  const sortedCases = [...cases].sort((a, b) => {
-    if (a[sortColumn] < b[sortColumn]) return sortOrder === "asc" ? -1 : 1;
-    if (a[sortColumn] > b[sortColumn]) return sortOrder === "asc" ? 1 : -1;
-    return 0;
-  });
-
   useEffect(() => {
     applyFilters();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [cases, activeFilters]);
+  }, [cases, activeFilters, sortColumn, sortOrder]);
+
+  const applyFilters = () => {
+    let updatedCases = [...cases];
+    activeFilters.forEach((filter) => {
+      const { field, operator, value } = filter;
+      updatedCases = updatedCases.filter((c) => {
+        switch (operator) {
+          case "equals":
+            return (
+              String(c[field]).toLowerCase() === String(value).toLowerCase()
+            );
+          case "contains":
+            return String(c[field])
+              .toLowerCase()
+              .includes(String(value).toLowerCase());
+          case "starts with":
+            return String(c[field])
+              .toLowerCase()
+              .startsWith(String(value).toLowerCase());
+          case "ends with":
+            return String(c[field])
+              .toLowerCase()
+              .endsWith(String(value).toLowerCase());
+          case "greater than":
+            return Number(c[field]) > Number(value);
+          case "less than":
+            return Number(c[field]) < Number(value);
+          case "after":
+            return new Date(c[field]) > new Date(value);
+          case "before":
+            return new Date(c[field]) < new Date(value);
+          default:
+            return true;
+        }
+      });
+    });
+
+    // Apply sorting
+    updatedCases.sort((a, b) => {
+      if (a[sortColumn] < b[sortColumn]) return sortOrder === "asc" ? -1 : 1;
+      if (a[sortColumn] > b[sortColumn]) return sortOrder === "asc" ? 1 : -1;
+      return 0;
+    });
+
+    setFilteredCases(updatedCases);
+  };
 
   const handleAddFilter = (newFilter) => {
     if (newFilter) {
@@ -543,61 +579,6 @@ const Cases = () => {
 
   const clearAllFilters = () => {
     setActiveFilters([]);
-  };
-
-  const applyFilters = () => {
-    let updatedCases = [...cases];
-    activeFilters.forEach((filter) => {
-      const { field, operator, value } = filter;
-      switch (operator) {
-        case "equals":
-          updatedCases = updatedCases.filter(
-            (c) =>
-              String(c[field]).toLowerCase() === String(value).toLowerCase()
-          );
-          break;
-        case "contains":
-          updatedCases = updatedCases.filter((c) =>
-            String(c[field]).toLowerCase().includes(String(value).toLowerCase())
-          );
-          break;
-        case "starts with":
-          updatedCases = updatedCases.filter((c) =>
-            String(c[field])
-              .toLowerCase()
-              .startsWith(String(value).toLowerCase())
-          );
-          break;
-        case "ends with":
-          updatedCases = updatedCases.filter((c) =>
-            String(c[field]).toLowerCase().endsWith(String(value).toLowerCase())
-          );
-          break;
-        case "greater than":
-          updatedCases = updatedCases.filter(
-            (c) => Number(c[field]) > Number(value)
-          );
-          break;
-        case "less than":
-          updatedCases = updatedCases.filter(
-            (c) => Number(c[field]) < Number(value)
-          );
-          break;
-        case "after":
-          updatedCases = updatedCases.filter(
-            (c) => new Date(c[field]) > new Date(value)
-          );
-          break;
-        case "before":
-          updatedCases = updatedCases.filter(
-            (c) => new Date(c[field]) < new Date(value)
-          );
-          break;
-        default:
-          break;
-      }
-    });
-    setFilteredCases(updatedCases);
   };
 
   const handleAddCase = (newCase) => {
@@ -624,6 +605,7 @@ const Cases = () => {
       );
     }
   };
+
   const metrics = [
     {
       icon: <ShieldCheck className="h-5 w-5" />,
@@ -705,10 +687,11 @@ const Cases = () => {
                     className="appearance-none w-[180px] px-4 py-2 border rounded-md text-gray-500"
                     onChange={(e) => {
                       if (e.target.value) {
-                        setActiveFilters([
-                          ...activeFilters,
-                          { field, operator: "equals", value: e.target.value },
-                        ]);
+                        handleAddFilter({
+                          field,
+                          operator: "equals",
+                          value: e.target.value,
+                        });
                       }
                     }}
                   >
@@ -820,8 +803,8 @@ const Cases = () => {
               </tr>
             </thead>
             <tbody>
-              {sortedCases.length > 0 ? (
-                sortedCases.map((c) => (
+              {filteredCases.length > 0 ? (
+                filteredCases.map((c) => (
                   <tr
                     key={c.CaseID}
                     className="bg-white border-b hover:bg-gray-50"

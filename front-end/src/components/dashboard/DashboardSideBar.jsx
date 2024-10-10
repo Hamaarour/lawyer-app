@@ -48,7 +48,7 @@ const DashboardSideBar = () => {
               className={({ isActive }) =>
                 `flex items-center gap-3 p-2 w-full rounded mb-1 transition-all duration-300 ease-in-out transform ${
                   isActive
-                    ? " bg-gold text-black rounded-3xl px-10"
+                    ? " bg-gold text-white font-bold rounded-3xl px-10"
                     : "text-gray-700 hover:bg-gray-50 hover:rounded-3xl"
                 }`
               }

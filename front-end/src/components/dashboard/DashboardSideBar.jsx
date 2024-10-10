@@ -14,7 +14,6 @@ const DashboardSideBar = () => {
   const navItems = [
     { icon: <House />, label: "Home", route: "/dashboard/home" },
     { icon: <CalendarDays />, label: "Calendar", route: "/dashboard/calendar" },
-    { icon: <SquareCheckBig />, label: "Task", route: "/dashboard/tasks" },
     { icon: <BriefcaseBusiness />, label: "Cases", route: "/dashboard/cases" },
     { icon: <Users />, label: "Clients", route: "/dashboard/clients" },
     {

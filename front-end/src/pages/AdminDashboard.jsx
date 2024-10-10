@@ -8,7 +8,6 @@ import LawyerChart from "../components/dashboard/LawyerCharts";
 import ClientList from "../components/dashboard/ClientList";
 import Cases from "../components/dashboard/Cases";
 import Appointments from "../components/dashboard/Appointments";
-import Tasks from "../components/dashboard/Tasks";
 
 const AdminDashboard = () => {
   const navigate = useNavigate();
@@ -30,7 +29,6 @@ const AdminDashboard = () => {
           <Routes>
             <Route path="/" element={<Navigate to="/dashboard/home" />} />
             <Route path="/home" element={<DashboardHome />} />
-            <Route path="/tasks" element={<Tasks />} />
             <Route path="/calendar" element={<Calendar />} />
             <Route path="/cases" element={<Cases />} />
             <Route path="/clients" element={<ClientList />} />

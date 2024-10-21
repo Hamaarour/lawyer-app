@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { ChevronDown, Globe, Menu, X } from "lucide-react";
+import { ChevronDown, Globe, Menu, X, User } from "lucide-react";
 
 const Navbar = () => {
   const languages = [
@@ -12,7 +12,6 @@ const Navbar = () => {
     { label: "Our firm", href: "#" },
     { label: "Our lawyers", href: "#" },
     { label: "Services", href: "#services" },
-    { label: "Blog", href: "#" },
     { label: "Contact", href: "#", className: "text-gold" },
   ];
 
@@ -43,6 +42,12 @@ const Navbar = () => {
   const handleLanguageSelect = (language) => {
     setSelectedLanguage(language);
     setIsLanguageDropdownOpen(false);
+  };
+
+  // Function to handle login click
+  const handleLoginClick = () => {
+    // Replace '/login' with the actual path to your login page
+    window.location.href = "/login";
   };
 
   return (
@@ -110,6 +115,15 @@ const Navbar = () => {
               </div>
             )}
           </div>
+
+          {/* Login Icon */}
+          <button
+            onClick={handleLoginClick}
+            className="text-gray-200 hover:text-gold transition-colors duration-300"
+            aria-label="Login"
+          >
+            <User className="w-5 h-5" />
+          </button>
         </div>
 
         {/* Mobile Menu Button */}

@@ -21,9 +21,10 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative h-screen bg-gray-900 bg-hero-bg bg-cover text-white overflow-hidden">
+    <section className="relative h-screen bg-gray-900 bg-hero-bg bg-cover text-white overflow-hidden pt-20">
+      {" "}
+      {/* Add padding */}
       <div className="absolute inset-0 bg-black opacity-50"></div>
-
       <div className="container mx-auto px-4 h-full flex flex-col justify-between relative z-10">
         <div className="flex-grow flex items-center">
           <motion.div
@@ -52,8 +53,8 @@ const HeroSection = () => {
 
             <motion.button
               className="group bg-gold text-white px-6 py-3 sm:px-8 sm:py-4 rounded-md text-base sm:text-lg
-                         hover:bg-white hover:text-gold transition-all duration-300
-                         flex items-center space-x-2"
+                     hover:bg-white hover:text-gold transition-all duration-300
+                     flex items-center space-x-2"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >

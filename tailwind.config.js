@@ -11,14 +11,14 @@ export default {
         lightGray: "#ececec",
       },
       fontFamily: {
-        serif: ['"Playfair Display"', "serif"], 
-        sans: ['"Roboto"', "sans-serif"], 
+        serif: ['"Playfair Display"', "serif"],
+        sans: ['"Roboto"', "sans-serif"],
       },
       backgroundImage: {
-        "hero-bg": "url('./src/assets/images/hero-law.png')", 
+        "hero-bg": "url('/src/assets/images/hero-law.png')",
       },
       boxShadow: {
-        custom: "0px 4px 8px rgba(0, 0, 0, 0.1)", 
+        custom: "0px 4px 8px rgba(0, 0, 0, 0.1)",
       },
       spacing: {
         "section-padding": "5rem",

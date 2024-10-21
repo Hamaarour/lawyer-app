@@ -33,7 +33,7 @@ To get started with the project, follow these steps:
 1. **Clone the repository**:
 
 ```bash
-git clone https://github.com/yourusername/law-firm-app.git
+git clone https://github.com/Hamaarour/lawyer-app.git law-firm-app
 cd law-firm-app
 ```
 
@@ -71,24 +71,6 @@ The app provides a multilingual experience with support for:
 
 Users can easily switch languages using the language selector integrated into the navigation bar.
 
-## 📷 Design Preview
-
-Here are some snapshots of the **Law Firm App** design:
-
-### Homepage
-
-Displays an overview of the firm and services.
-<img src="/api/placeholder/800/400" alt="Homepage Screenshot" width="800" />
-
-### Lawyers Section
-
-Profiles of each lawyer with details and areas of expertise.
-<img src="/api/placeholder/800/400" alt="Lawyers Section Screenshot" width="800" />
-
-### Contact Form
-
-Reach out directly to the firm through a sleek and simple form.
-<img src="/api/placeholder/800/400" alt="Contact Form Screenshot" width="800" />
 
 ## 📄 ESLint & Plugins
 

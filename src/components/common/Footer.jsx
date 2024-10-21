@@ -7,11 +7,7 @@ const Footer = () => {
     <footer className="bg-[#0D0D0D] text-white py-6">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center mb-6">
-          <img
-            src="/public/images/logo.png"
-            className="w-32"
-            alt="Law Firm Logo"
-          />
+          <img src="/images/logo.png" className="w-32" alt="Law Firm Logo" />
           <nav className="flex flex-wrap justify-center md:justify-end space-x-4">
             <a href="#" className="hover:text-[#D4AF37] transition-colors">
               Our firm

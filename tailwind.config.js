@@ -15,7 +15,7 @@ export default {
         sans: ['"Roboto"', "sans-serif"],
       },
       backgroundImage: {
-        "hero-bg": "url('/public/images/hero-law.png')",
+        "hero-bg": "url('/images/hero-law.png')",
       },
       boxShadow: {
         custom: "0px 4px 8px rgba(0, 0, 0, 0.1)",

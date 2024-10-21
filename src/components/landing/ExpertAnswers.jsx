@@ -42,7 +42,7 @@ const LegalServices = () => {
 
           <div className="hidden lg:block">
             <img
-              src="/public/images/Legal-consultation.jpg"
+              src="/images/Legal-consultation.jpg"
               alt="Legal consultation"
               className="rounded-lg shadow-lg"
             />

@@ -5,7 +5,7 @@ const Consultation = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <img
-              src="/public/images/law.jpg"
+              src="/images/law.jpg"
               alt="Legal consultation"
               className="rounded-lg"
             />

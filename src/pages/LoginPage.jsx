@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
@@ -27,12 +28,13 @@ const LoginForm = () => {
     <div className="flex h-screen">
       <div className="w-full md:w-1/2 p-12 bg-white flex flex-col justify-center">
         <div className="mb-12">
-          {/* Replace with your logo */}
-          <img
-            src="../../src/assets/images/logo.png"
-            alt="logo"
-            className=" w-36"
-          />
+          <Link to="/" aria-label="Home">
+            <img
+              src="../../src/assets/images/logo.png"
+              alt="logo"
+              className="w-36"
+            />
+          </Link>
         </div>
         <h1 className="text-4xl font-bold mb-6">
           Secure Access for Legal Professionals

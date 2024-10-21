@@ -14,7 +14,7 @@ import {
   ShieldCheck,
   Newspaper,
 } from "lucide-react";
-// Sample data structure matching your case class
+
 const initialCases = [
   {
     CaseID: 1,

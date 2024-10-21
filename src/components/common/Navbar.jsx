@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { ChevronDown, Globe, Menu, X, User } from "lucide-react";
+import { ChevronDown, Globe, Menu, X, User, Github } from "lucide-react";
 
 const Navbar = () => {
   const languages = [
@@ -44,9 +44,7 @@ const Navbar = () => {
     setIsLanguageDropdownOpen(false);
   };
 
-  // Function to handle login click
   const handleLoginClick = () => {
-    // Replace '/login' with the actual path to your login page
     window.location.href = "/login";
   };
 
@@ -115,6 +113,17 @@ const Navbar = () => {
               </div>
             )}
           </div>
+
+          {/* GitHub Icon */}
+          <a
+            href="https://github.com/Hamaarour/lawyer-app"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-200 hover:text-gold transition-colors duration-300"
+            aria-label="GitHub"
+          >
+            <Github className="w-5 h-5" />
+          </a>
 
           {/* Login Icon */}
           <button
@@ -203,6 +212,26 @@ const Navbar = () => {
               </div>
             )}
           </div>
+
+          {/* GitHub Icon for Mobile Menu */}
+          <a
+            href="https://github.com/yourusername" // Replace with your actual GitHub URL
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-200 hover:text-gold transition-colors duration-300 mt-4"
+            aria-label="GitHub"
+          >
+            <Github className="w-6 h-6" />
+          </a>
+
+          {/* Login Icon for Mobile Menu */}
+          <button
+            onClick={handleLoginClick}
+            className="text-gray-200 hover:text-gold transition-colors duration-300 mt-4"
+            aria-label="Login"
+          >
+            <User className="w-6 h-6" />
+          </button>
         </div>
       </div>
     </nav>

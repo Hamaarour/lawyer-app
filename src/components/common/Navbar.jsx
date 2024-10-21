@@ -56,7 +56,7 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-4 py-5 flex justify-between items-center">
         <img
-          src="../../src/assets/images/logo.png"
+          src="/public/images/logo.png"
           className="w-32"
           alt="Law Firm Logo"
         />

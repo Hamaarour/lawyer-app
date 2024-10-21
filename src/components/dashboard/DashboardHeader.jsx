@@ -20,7 +20,7 @@ const DashboardHeader = () => {
         </button>
         <button className="flex items-center space-x-2">
           <img
-            src="../../../src/assets/images/Legal-consultation.jpg"
+            src="/public/images/Legal-consultation.jpg"
             alt="User avatar"
             className="h-8 w-8 rounded-full"
           />

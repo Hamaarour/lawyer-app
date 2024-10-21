@@ -29,11 +29,7 @@ const LoginForm = () => {
       <div className="w-full md:w-1/2 p-12 bg-white flex flex-col justify-center">
         <div className="mb-12">
           <Link to="/" aria-label="Home">
-            <img
-              src="../../src/assets/images/logo.png"
-              alt="logo"
-              className="w-36"
-            />
+            <img src="/public/images/logo.png" alt="logo" className="w-36" />
           </Link>
         </div>
         <h1 className="text-4xl font-bold mb-6">
@@ -92,7 +88,7 @@ const LoginForm = () => {
       </div>
       <div className="hidden md:flex w-1/2 bg-blue-900  items-center justify-center overflow-hidden">
         <img
-          src="../../src/assets/images/login.jpg"
+          src="/public/images/login.jpg"
           alt="Legal illustration"
           className="w-full h-full object-cover"
         />

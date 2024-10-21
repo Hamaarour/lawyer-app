@@ -33,11 +33,7 @@ const DashboardSideBar = () => {
   return (
     <div className="w-64 bg-cream p-4 border-r h-screen flex flex-col">
       <div className="mb-8 flex-1">
-        <img
-          src="../../../src/assets/images/logo.png"
-          alt="logo"
-          className="mb-12"
-        />
+        <img src="/public/images/logo.png" alt="logo" className="mb-12" />
         <h2 className="text-sm font-semibold text-gray-500">ACCOUNT</h2>
         <nav className="flex flex-col my-5">
           {navItems.map((item, index) => (

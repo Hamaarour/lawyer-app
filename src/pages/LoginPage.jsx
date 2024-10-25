@@ -37,54 +37,60 @@ const LoginForm = () => {
         </h1>
         <p className="my-6 text-3xl font-semibold">Login to Your Dashboard</p>
 
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-          <div>
-            <input
-              type="login"
-              placeholder="login "
-              {...register("login", { required: "Login is required" })}
-              className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gold"
-            />
-            {errors.login && (
-              <span className="text-red-500 text-sm">
-                {errors.login.message}
-              </span>
-            )}
-          </div>
-          <div>
-            <input
-              type="password"
-              placeholder="Password"
-              {...register("password", { required: "Password is required" })}
-              className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gold"
-            />
-            {errors.password && (
-              <span className="text-red-500 text-sm">
-                {errors.password.message}
-              </span>
-            )}
-          </div>
-          <div className="flex items-center">
-            <input
-              type="checkbox"
-              id="remember"
-              {...register("remember")}
-              className="mr-2"
-            />
-            <label htmlFor="remember" className="text-sm text-gray-600">
-              Remember me
-            </label>
-          </div>
-          {loginError && (
-            <div className="text-red-500 text-sm">{loginError}</div>
-          )}
-          <button
-            type="submit"
-            className="w-full bg-black text-white p-3 rounded-md hover:bg-gray-800 transition duration-300"
-          >
-            LOGIN
-          </button>
-        </form>
+       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+  <div className="text-sm text-gray-600">
+    <p>For demo purposes, use:</p>
+    <p><strong>Login:</strong> admiin</p>
+    <p><strong>Password:</strong> admin123</p>
+  </div>
+  <div>
+    <input
+      type="login"
+      placeholder="login"
+      {...register("login", { required: "Login is required" })}
+      className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gold"
+    />
+    {errors.login && (
+      <span className="text-red-500 text-sm">
+        {errors.login.message}
+      </span>
+    )}
+  </div>
+  <div>
+    <input
+      type="password"
+      placeholder="Password"
+      {...register("password", { required: "Password is required" })}
+      className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gold"
+    />
+    {errors.password && (
+      <span className="text-red-500 text-sm">
+        {errors.password.message}
+      </span>
+    )}
+  </div>
+  <div className="flex items-center">
+    <input
+      type="checkbox"
+      id="remember"
+      {...register("remember")}
+      className="mr-2"
+    />
+    <label htmlFor="remember" className="text-sm text-gray-600">
+      Remember me
+    </label>
+  </div>
+  {loginError && (
+    <div className="text-red-500 text-sm">{loginError}</div>
+  )}
+  <button
+    type="submit"
+    className="w-full bg-black text-white p-3 rounded-md hover:bg-gray-800 transition duration-300"
+  >
+    LOGIN
+  </button>
+</form>
+
       </div>
       <div className="hidden md:flex w-1/2 bg-blue-900  items-center justify-center overflow-hidden">
         <img

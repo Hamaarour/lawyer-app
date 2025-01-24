@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { ChevronDown, Globe, Menu, X, User, Github } from "lucide-react";
-
+import { useNavigate } from "react-router-dom";
 const Navbar = () => {
   const languages = [
     { label: "English", code: "en" },
@@ -45,8 +45,9 @@ const Navbar = () => {
   };
 
   const handleLoginClick = () => {
-    window.location.href = "/login";
-  };
+  const navigate = useNavigate();
+  navigate("/login");
+};
 
   return (
     <nav

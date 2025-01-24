@@ -40,7 +40,7 @@ const LoginForm = () => {
        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
   <div className="text-sm text-gray-600">
     <p>For demo purposes, use:</p>
-    <p><strong>Login:</strong> admiin</p>
+    <p><strong>Login:</strong> admin</p>
     <p><strong>Password:</strong> admin123</p>
   </div>
   <div>
